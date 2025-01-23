@@ -285,7 +285,7 @@ class ClientImpl implements Client {
   @override
   Future<void> send(List<int> data) async {
     await ready().timeout(_config.timeout);
-    final request = protocol.Message()..data = data;
+    final request = protocol.SendRequest()..data = data;
     await _transport!.sendAsyncMessage(request);
   }
 
